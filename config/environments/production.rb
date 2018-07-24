@@ -82,4 +82,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.default_url_options = { :host => 'alterland.ru' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :address              => 'smtp.zoho.eu',
+      :port                 =>  465,
+      :user_name            => Rails.application.credentials.email[:name],
+      :password             => Rails.application.credentials.email[:password],
+      :authentication       => :plain,
+      :ssl                  => true
+  }
 end

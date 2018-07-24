@@ -59,3 +59,13 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server "alterland.ru",
+       user: 'deployer',
+       roles: %w{web db app},
+       ssh_options: {
+           user: "deployer", # overrides user setting above
+           keys: %w(/c/Users/roman/.ssh/id_rsa),
+           forward_agent: false,
+           auth_methods: %w(publickey password)
+           # password: "please use keys"
+       }
